@@ -6,12 +6,15 @@ import hamburger_menu from "../../assets/icon _hamburger_menu.svg"
 
 const Nav = () => {
   const [open, setOpen] = useState(false);
-  const toggleMenu = () => setOpen(!open);
 
   return (
     <StyledContainer role="banner">
       <Link to="/">
-        <img src={Logo} alt="Little Lemon Logo" style={{ width: "100%" }} />
+        <img
+          src={Logo}
+          alt="Little Lemon Logo"
+          style={{ width: "100%" }}
+        />
       </Link>
       <StyledUl open={open}>
         <li>
@@ -33,7 +36,7 @@ const Nav = () => {
           <Link to="">Login</Link>
         </li>
       </StyledUl>
-      <StyledMenuIcon onClick={toggleMenu}>
+      <StyledMenuIcon onClick={() => setOpen(!open)}>
         <img src={hamburger_menu} alt="hamburger_menu" />
       </StyledMenuIcon>
     </StyledContainer>
@@ -52,13 +55,14 @@ const StyledUl = styled.ul`
   display: flex;
 
   li {
-    padding: 0 0.5rem;
+    padding: 0.5rem;
   }
 
   a {
     color: #333333;
     font-family: "Karla", sans-serif, serif;
     font-size: 1rem;
+    font-weight: 500;
     &:hover{
       font-weight: bold;
     }
@@ -75,7 +79,7 @@ const StyledUl = styled.ul`
     text-align: center;
     background-color: rgba(51, 51, 51, 0.8);
     transition: all 1s ease-out;
-    z-index: 10;
+    z-index: 100;
 
     a {
     color: #EBE5E5;
