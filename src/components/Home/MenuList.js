@@ -30,7 +30,7 @@ const MenuList = () => {
                     {description}
                   </p>
                 </div>
-                <div className="flex items-center justify-end">
+                <div className="flex justify-end">
                   <div className="relative flex items-center justify-center mt-6 bg-highlight-black h-8 w-28 shadow-lg rounded-lg">
                     <span className="text-highlight-gray text-xs font-Intel font-semibold mr-4">
                       Delivery

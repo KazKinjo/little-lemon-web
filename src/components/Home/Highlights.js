@@ -9,7 +9,10 @@ const Highlights = () => {
           This Week Specials!
         </h3>
         <Link to="">
-          <button type="button" className="bg-primary-yellow text-highlight-black text-2xl font-Intel font-semibold h-16 w-60 border-0 rounded-2xl hover:cursor-pointer hover:transition-all hover:text-highlight-gray">
+          <button
+            type="button"
+            className="bg-primary-yellow text-highlight-black text-2xl font-Intel font-semibold h-16 w-60 border-0 rounded-2xl hover:cursor-pointer hover:transition-all hover:text-highlight-gray"
+          >
             Order Online
           </button>
         </Link>

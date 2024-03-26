@@ -27,7 +27,7 @@ export const specialmenu = [
     id: "lemon_dessert",
     name: "Lemon Dessert",
     price: 4.99,
-    description: "This comes straight from grandma’s recipe book, every last ingredient has...",
+    description: "This comes straight from grandma's recipe book, every last ingredient has...",
     src: lemon_dessert,
     alt: "Lemon Dessert",
   },

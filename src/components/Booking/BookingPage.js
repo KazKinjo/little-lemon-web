@@ -7,11 +7,14 @@ const BookingPage = () => {
       <img
         src={little_lemon_booking}
         alt='Little Lemon'
-        className='w-full object-cover object-center h-80' />
-      <h1 className='text-highlight-black text-3xl font-bold font-Markazi m-14'>
-        Booking Table
-      </h1>
-      <Main />
+        className='w-full object-cover object-center h-96'
+      />
+      <div className='m-14 text-center'>
+        <h1 className='text-highlight-black text-3xl font-bold font-Markazi'>
+          Booking Table
+        </h1>
+        <Main />
+      </div>
     </main>
   );
 };
