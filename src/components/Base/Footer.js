@@ -4,11 +4,8 @@ import GooglePlayBadge from "../../assets/Google_Play_Store_badge_EN.svg.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-highlight-gray p-10">
-      <div className="
-        text-highlight-black font-Karla text-center
-        md:flex md:justify-between md:items-start md:text-left md:pb-10"
-      >
+    <footer className="bg-highlight-gray p-14">
+      <div className="text-highlight-black font-Karla text-center md:flex md:justify-between md:items-start md:text-left md:pb-14">
         <ul className="mb-10 md:mr-10 md:mb-0">
           <h2 className="font-bold mb-4">
             Our site
@@ -75,10 +72,18 @@ const Footer = () => {
             Mobile App
           </h2>
           <Link to="">
-            <img src={AppleStoreBadge} alt="Apple Store badge" className="h-10 mb-4" />
+            <img
+              src={AppleStoreBadge}
+              alt="Apple Store badge"
+              className="h-10 mb-4"
+            />
           </Link>
           <Link to="">
-            <img src={GooglePlayBadge} alt="Google Play badge" className="h-10 mb-4" />
+            <img
+              src={GooglePlayBadge}
+              alt="Google Play badge"
+              className="h-10 mb-4"
+            />
           </Link>
         </div>
       </div>

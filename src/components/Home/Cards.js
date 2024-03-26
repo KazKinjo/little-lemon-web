@@ -8,7 +8,7 @@ const Cards = () => {
           return (
             <article
               key={id}
-              className="flex flex-col w-4/5 bg-highlight-gray p-4 mt-12 rounded-2xl shadow-md sm:w-3/5 md:mt-0"
+              className="flex flex-col w-4/5 bg-highlight-gray p-4 mt-12 rounded-2xl shadow-md sm:w-3/5 md:mt-0 md:h-auto"
             >
               <img
                 src={src}
