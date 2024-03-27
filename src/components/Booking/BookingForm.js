@@ -1,4 +1,7 @@
-import { useState, useEffect } from 'react';
+import {
+  useState,
+  useEffect
+} from 'react';
 
 const BookingForm = ({ availableTimes, submitForm, dispatch }) => {
   const [date, setDate] = useState("");
@@ -12,25 +15,25 @@ const BookingForm = ({ availableTimes, submitForm, dispatch }) => {
     submitForm();
   };
 
-  const handleDate = (e) => {
-    setDate(e.target.value);
-    validateForm();
-  };
+  // const handleDate = (e) => {
+  //   setDate(e.target.value);
+  //   validateForm();
+  // };
 
-  const handleTime = (e) => {
-    setTime(e.target.value);
-    validateForm();
-  };
+  // const handleTime = (e) => {
+  //   setTime(e.target.value);
+  //   validateForm();
+  // };
 
-  const handleGuests = (e) => {
-    setGuests(e.target.value);
-    validateForm();
-  };
+  // const handleGuests = (e) => {
+  //   setGuests(e.target.value);
+  //   validateForm();
+  // };
 
-  const handleOccasion = (e) => {
-    setOccasion(e.target.value);
-    validateForm();
-  };
+  // const handleOccasion = (e) => {
+  //   setOccasion(e.target.value);
+  //   validateForm();
+  // };
 
   const validateForm = () => {
     if (date && time && guests && occasion) {
@@ -42,10 +45,13 @@ const BookingForm = ({ availableTimes, submitForm, dispatch }) => {
 
   useEffect(() => {
     validateForm();
-  });
+  },);
 
   return (
-    <form onSubmit={handleSubmit} className='flex flex-col mx-14 mb-20'>
+    <form
+      onSubmit={handleSubmit}
+      className='flex flex-col mx-14 mb-20'
+    >
       <div className='gap-10 md:flex md:items-center md:justify-between'>
         <div className='text-highlight-black font-semibold text-xl mb-6 max-w-96 md:w-1/2'>
           <label htmlFor="date">Date</label>
@@ -54,7 +60,7 @@ const BookingForm = ({ availableTimes, submitForm, dispatch }) => {
             id="date"
             required
             value={date}
-            onChange={handleDate}
+            onChange={(e) => setDate(e.target.value)}
             className='w-full mt-2 p-2 border-highlight-black border-2 border-solid rounded-2xl focus:outline-none'
           />
         </div>
@@ -64,11 +70,13 @@ const BookingForm = ({ availableTimes, submitForm, dispatch }) => {
             id="time"
             required
             value={time}
-            onChange={handleTime}
-            className='w-full mt-2 p-2 border-highlight-black border-2 border-solid rounded-2xl :focus:outline-none'
+            onChange={(e) => setTime(e.target.value)}
+            className='w-full mt-2 p-2 border-highlight-black border-2 border-solid rounded-2xl focus:outline-none'
           >
             {availableTimes
-              ? availableTimes.map((time) => (<option key={time}>{time}</option>))
+              ? availableTimes.map((time) => (
+                <option key={time}>{time}</option>
+              ))
               : null
             };
           </select>
@@ -77,17 +85,16 @@ const BookingForm = ({ availableTimes, submitForm, dispatch }) => {
       <div className='gap-10 md:flex md:items-center md:justify-between'>
         <div className='text-highlight-black text-lg font-semibold mb-6 max-w-96 md:w-1/2'>
           <label htmlFor="guests">Number of guests</label>
-          <input
-            type="number"
+          <select
             id="guests"
-            placeholder="1"
-            min="1"
-            max="10"
             required
             value={guests}
-            onChange={handleGuests}
+            onChange={(e) => setGuests(e.target.value)}
             className='w-full mt-2 p-2 border-highlight-black border-2 border-solid rounded-2xl :focus:outline-none'
-          />
+          >
+            <option value="1">1 Person</option>
+            <option value="2">2 People</option>
+          </select>
         </div>
         <div className='text-highlight-black text-lg font-semibold mb-6 max-w-96 md:w-1/2 md:max-w-96'>
           <label htmlFor="occasion">Occasion</label>
@@ -95,7 +102,7 @@ const BookingForm = ({ availableTimes, submitForm, dispatch }) => {
             id="occasion"
             required
             value={occasion}
-            onChange={handleOccasion}
+            onChange={(e) => setOccasion(e.target.value)}
             className='w-full mt-2 p-2 border-highlight-black border-2 border-solid rounded-2xl :focus:outline-none'
           >
             <option value="Birthday">Birthday</option>
@@ -106,7 +113,10 @@ const BookingForm = ({ availableTimes, submitForm, dispatch }) => {
       <button
         type='submit'
         disabled={!isValid}
-        className="bg-primary-yellow text-highlight-black text-2xl font-Intel font-semibold self-center h-16 w-60 mt-10 border-0 rounded-2xl hover:cursor-pointer hover:transition-all hover:text-highlight-gray"
+        className="
+        bg-primary-yellow text-highlight-black text-2xl font-Intel font-semibold self-center h-16 w-60 mt-10 border-0 rounded-2xl 
+        hover:cursor-pointer hover:transition-all hover:text-highlight-gray 
+        disabled:bg-highlight-gray disabled:hover:transition-none disabled:text-highlight-black disabled:text-opacity-30"
       >
         Book Now
       </button>
