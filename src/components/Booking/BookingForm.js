@@ -1,12 +1,9 @@
-import {
-  useState,
-  useEffect
-} from 'react';
+import { useState, useEffect } from 'react';
 
-const BookingForm = ({ availableTimes, submitForm, dispatch }) => {
+const BookingForm = ({ availableTimes, selectNumberOfGuests, selectOccasions, submitForm }) => {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
-  const [guests, setGuests] = useState("");
+  const [guest, setGuests] = useState("");
   const [occasion, setOccasion] = useState("");
   const [isValid, setIsValid] = useState(false);
 
@@ -15,28 +12,8 @@ const BookingForm = ({ availableTimes, submitForm, dispatch }) => {
     submitForm();
   };
 
-  // const handleDate = (e) => {
-  //   setDate(e.target.value);
-  //   validateForm();
-  // };
-
-  // const handleTime = (e) => {
-  //   setTime(e.target.value);
-  //   validateForm();
-  // };
-
-  // const handleGuests = (e) => {
-  //   setGuests(e.target.value);
-  //   validateForm();
-  // };
-
-  // const handleOccasion = (e) => {
-  //   setOccasion(e.target.value);
-  //   validateForm();
-  // };
-
   const validateForm = () => {
-    if (date && time && guests && occasion) {
+    if (date && time && guest && occasion) {
       setIsValid(true);
     } else {
       setIsValid(false);
@@ -48,10 +25,7 @@ const BookingForm = ({ availableTimes, submitForm, dispatch }) => {
   },);
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className='flex flex-col mx-14 mb-20'
-    >
+    <form onSubmit={handleSubmit} className='flex flex-col mx-14 mb-20'>
       <div className='gap-10 md:flex md:items-center md:justify-between'>
         <div className='text-highlight-black font-semibold text-xl mb-6 max-w-96 md:w-1/2'>
           <label htmlFor="date">Date</label>
@@ -73,27 +47,21 @@ const BookingForm = ({ availableTimes, submitForm, dispatch }) => {
             onChange={(e) => setTime(e.target.value)}
             className='w-full mt-2 p-2 border-highlight-black border-2 border-solid rounded-2xl focus:outline-none'
           >
-            {availableTimes
-              ? availableTimes.map((time) => (
-                <option key={time}>{time}</option>
-              ))
-              : null
-            };
+            {availableTimes.map((time) => <option key={time}>{time}</option>)}
           </select>
         </div>
       </div>
       <div className='gap-10 md:flex md:items-center md:justify-between'>
         <div className='text-highlight-black text-lg font-semibold mb-6 max-w-96 md:w-1/2'>
-          <label htmlFor="guests">Number of guests</label>
+          <label htmlFor="guest">Number of guests</label>
           <select
-            id="guests"
+            id="guest"
             required
-            value={guests}
+            value={guest}
             onChange={(e) => setGuests(e.target.value)}
             className='w-full mt-2 p-2 border-highlight-black border-2 border-solid rounded-2xl :focus:outline-none'
           >
-            <option value="1">1 Person</option>
-            <option value="2">2 People</option>
+            {selectNumberOfGuests.map((guest) => <option key={guest}>{guest}</option>)}
           </select>
         </div>
         <div className='text-highlight-black text-lg font-semibold mb-6 max-w-96 md:w-1/2 md:max-w-96'>
@@ -105,8 +73,7 @@ const BookingForm = ({ availableTimes, submitForm, dispatch }) => {
             onChange={(e) => setOccasion(e.target.value)}
             className='w-full mt-2 p-2 border-highlight-black border-2 border-solid rounded-2xl :focus:outline-none'
           >
-            <option value="Birthday">Birthday</option>
-            <option value="Anniversary">Anniversary</option>
+            {selectOccasions.map((occasion) => <option key={occasion}>{occasion}</option>)}
           </select>
         </div>
       </div>
